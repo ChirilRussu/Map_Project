@@ -36,15 +36,15 @@ $(function(){
 
             if (pos) {
                 pos = pos.wrap();
-                var mapcode = this._LatLngToMapcode(pos);
+                var mapcode = this.x_y_map_code(pos);
                 this._label.innerHTML = this._createMapcodeLabel(mapcode);
             }
         },
-
-        _LatLngToMapcode: function(point){
-            var lng = point.lng;
-            var lat = point.lat;
-            return lat.toFixed(1) + ', ' + lng.toFixed(1);
+		// x y coordinates
+		x_y_map_code: function(point){
+            var x = point.lng;
+			var y = point.lat;
+            return x.toFixed(1) + ', ' + y.toFixed(1);
         },
 
         _createMapcodeLabel: function(mapcode){
@@ -56,26 +56,29 @@ $(function(){
             }
             return l;
         }
-
     });
 
     L.control.liveCoordinates = function(opts) {
         return new L.Control.LiveMouseCoordinatesControl(opts);
     };
 
-    var googleSheetJsonUrl = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/od6/public/values?alt=json' // published google doc
-    var attributionHTML = 'Map data &copy; <a href="https://map.playatlas.com/">Grapeshot Games</a>, ';
-    attributionHTML += 'Grid map overlay by &copy; <a href="https://game-maps.com/ATLAS/ATLAS-MMO-World-Map.asp">Game-Maps.com</a>';
+	// variables defined with json links from the published google doc(s)
+    var googleSheetJsonUrl_1 = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/1/public/values?alt=json'
+	var googleSheetJsonUrl_2 = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/2/public/values?alt=json'
+	
+	// var attributionHTML = 'Map data &copy; <a href="https://map.playatlas.com/">Grapeshot Games</a>, ';
+	// attributionHTML += 'Grid map overlay by &copy; <a href="https://game-maps.com/ATLAS/ATLAS-MMO-World-Map.asp">Game-Maps.com</a>';
 
     var officialMapLayer = L.tileLayer("tiles/{z}/{x}/{y}.png", {
         maxZoom: 6,
         minZoom: 1,
-        attribution: attributionHTML,
+     // attribution: attributionHTML,
         bounds: L.latLngBounds([0,0],[-256,256]),
         noWrap: true,
-    });
-
-    var gridMapLayer = L.imageOverlay('grid_map.png', [[6.5,-6.5], [-259,256.5]]);
+    });0
+	
+	// map layer
+    var gridMapLayer = L.imageOverlay('AAmap.png', [[6.5,-6.5], [-259,256.5]]); 
 
     var map = L.map("map", {
         crs: L.CRS.Simple,
@@ -92,39 +95,44 @@ $(function(){
 
     L.control.liveCoordinates({ position: 'bottomright' }).addTo(map);
 
-
-
-var LeafIcon = L.Icon.extend({             // defining the class
+// defining the icon class
+var LeafIcon = L.Icon.extend({             
     options: {
-        iconSize:     [38, 95],
-        iconAnchor:   [22, 94],
+        iconSize:     [30, 30],
+        iconAnchor:   [15, 15],
         popupAnchor:  [-3, -76]
     }
 });
 
-var greenIcon = new LeafIcon({iconUrl: 'leaf-green.png'}),               //creates 3 objects
-    redIcon = new LeafIcon({iconUrl: 'leaf-red.png'}),
+// defining specific icons
+var clover_icon = new LeafIcon({iconUrl: 'images/Clover.png'}),
+    iris_icon = new LeafIcon({iconUrl: 'images/Iris.png'}),
     orangeIcon = new LeafIcon({iconUrl: 'leaf-orange.png'});
 
-L.marker([-51.5, -0.09], {icon: greenIcon}).addTo(map).bindPopup("I am a green leaf.");          // places the 3 objects
-L.marker([-91.495, -0.083], {icon: redIcon}).addTo(map).bindPopup("I am a red leaf.");
-L.marker([-100.49, -0.1], {icon: orangeIcon}).addTo(map).bindPopup("I am an orange leaf.");
-
-
-
-
+	//Markers from sheet 1 placed on the map
     $.ajax({
-        url: googleSheetJsonUrl
+        url: googleSheetJsonUrl_1
     }).done(function(data) {
         console.log('google json', data);
         data.feed.entry.forEach(function(entry){
-            var marker = L.marker([entry['gsx$latitude']['$t'], entry['gsx$longitude']['$t']], {icon: greenIcon});
-            var markerPopupHtml = "<strong>Type: </strong>" + entry['gsx$group']['$t'];
+			var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: clover_icon});
+			// on click popup sample code
+         /* var markerPopupHtml = "<strong>Type: </strong>" + entry['gsx$group']['$t'];
             markerPopupHtml += "<br><strong>Name: </strong>" + entry['gsx$name']['$t'];
             if (entry['gsx$description']['$t'].length){
                 markerPopupHtml += "<br><strong>Description: </strong>" + entry['gsx$description']['$t'];
             }
-            marker.bindPopup(markerPopupHtml);
+            marker.bindPopup(markerPopupHtml); */
+            marker.addTo(map)
+        })
+    });
+	//sheet 2
+	    $.ajax({
+        url: googleSheetJsonUrl_2
+    }).done(function(data) {
+        console.log('google json', data);
+        data.feed.entry.forEach(function(entry){
+            var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: iris_icon});
             marker.addTo(map)
         })
     });
