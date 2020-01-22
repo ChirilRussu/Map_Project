@@ -14,7 +14,7 @@ $(function(){
                 container = this._container = L.DomUtil.create('div', className),
                 options = this.options;
 
-            // label container
+            // label container for the coordinate box
             this._labelcontainer = L.DomUtil.create("div", "uiElement label", container);
             this._label = L.DomUtil.create("span", "labelFirst", this._labelcontainer);
 
@@ -66,31 +66,27 @@ $(function(){
     var googleSheetJsonUrl_1 = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/2/public/values?alt=json'
 	var googleSheetJsonUrl_2 = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/3/public/values?alt=json'
 	
-	// var attributionHTML = 'Map data &copy; <a href="https://map.playatlas.com/">Grapeshot Games</a>, ';
-	// attributionHTML += 'Grid map overlay by &copy; <a href="https://game-maps.com/ATLAS/ATLAS-MMO-World-Map.asp">Game-Maps.com</a>';
-
-    var officialMapLayer = L.tileLayer("tiles/{z}/{x}/{y}.png", {
-        maxZoom: 6,
-        minZoom: 1,
-     // attribution: attributionHTML,
-        bounds: L.latLngBounds([0,0],[-256,256]),
-        noWrap: true,
+	// unused but the application expects tiles
+	var officialMapLayer = L.tileLayer("tiles/{z}/{x}/{y}.png", {
+    maxZoom: 6,
+    minZoom: 1,
+    bounds: L.latLngBounds([0,0],[-256,256]),
+    noWrap: true,
     });0
 	
 	// map layer
-    var gridMapLayer = L.imageOverlay('AAmap.png', [[6.5,-6.5], [-259,256.5]]); 
+    var the_map = L.imageOverlay('AAmap.png', [[0,0], [-259,256.5]]); 
 
     var map = L.map("map", {
         crs: L.CRS.Simple,
-        layers: [officialMapLayer, gridMapLayer],
+        layers: [officialMapLayer, the_map],
         maxZoom: 6,
         minZoom: 1
     }).setView([-128, 128], 2);
 
+	//filters
     L.control.layers({
-        "Official Map Tiles": officialMapLayer
-    }, {
-        "Game-Maps.com Grid": gridMapLayer
+        "ArcheAge Map": the_map
     }).addTo(map);
 
     L.control.liveCoordinates({ position: 'bottomright' }).addTo(map);
@@ -115,7 +111,7 @@ var clover_icon = new LeafIcon({iconUrl: 'images/Clover.png'}),
     }).done(function(data) {
         console.log('google json', data);
         data.feed.entry.forEach(function(entry){
-			var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: clover_icon});
+			var marker_1 = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: clover_icon});
 			// on click popup sample code
          /* var markerPopupHtml = "<strong>Type: </strong>" + entry['gsx$group']['$t'];
             markerPopupHtml += "<br><strong>Name: </strong>" + entry['gsx$name']['$t'];
@@ -123,19 +119,21 @@ var clover_icon = new LeafIcon({iconUrl: 'images/Clover.png'}),
                 markerPopupHtml += "<br><strong>Description: </strong>" + entry['gsx$description']['$t'];
             }
             marker.bindPopup(markerPopupHtml); */
-            marker.addTo(map)
+            marker_1.addTo(map)
         })
     });
+
 	//sheet 2
 	    $.ajax({
         url: googleSheetJsonUrl_2
     }).done(function(data) {
         console.log('google json', data);
         data.feed.entry.forEach(function(entry){
-            var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: iris_icon});
-            marker.addTo(map)
+            var marker_2 = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: iris_icon});
+            marker_2.addTo(map)
         })
     });
+	var cities = L.layerGroup([marker_1]);
 });
 
 // TODO
