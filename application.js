@@ -92,12 +92,33 @@ $(function(){
 
     L.control.liveCoordinates({ position: 'bottomright' }).addTo(map);
 
+
+
+var LeafIcon = L.Icon.extend({             // defining the class
+    options: {
+        iconSize:     [38, 95],
+        iconAnchor:   [22, 94],
+        popupAnchor:  [-3, -76]
+    }
+});
+
+var greenIcon = new LeafIcon({iconUrl: 'leaf-green.png'}),               //creates 3 objects
+    redIcon = new LeafIcon({iconUrl: 'leaf-red.png'}),
+    orangeIcon = new LeafIcon({iconUrl: 'leaf-orange.png'});
+
+L.marker([-51.5, -0.09], {icon: greenIcon}).addTo(map).bindPopup("I am a green leaf.");          // places the 3 objects
+L.marker([-91.495, -0.083], {icon: redIcon}).addTo(map).bindPopup("I am a red leaf.");
+L.marker([-100.49, -0.1], {icon: orangeIcon}).addTo(map).bindPopup("I am an orange leaf.");
+
+
+
+
     $.ajax({
         url: googleSheetJsonUrl
     }).done(function(data) {
         console.log('google json', data);
         data.feed.entry.forEach(function(entry){
-            var marker = L.marker([entry['gsx$latitude']['$t'], entry['gsx$longitude']['$t']]);
+            var marker = L.marker([entry['gsx$latitude']['$t'], entry['gsx$longitude']['$t']], {icon: greenIcon});
             var markerPopupHtml = "<strong>Type: </strong>" + entry['gsx$group']['$t'];
             markerPopupHtml += "<br><strong>Name: </strong>" + entry['gsx$name']['$t'];
             if (entry['gsx$description']['$t'].length){
