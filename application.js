@@ -85,9 +85,22 @@ $(function(){
     }).setView([-128, 128], 2);
 
 	//filters
-    L.control.layers({
-        "ArcheAge Map": the_map
-    }).addTo(map);
+	
+	var Clover = new L.LayerGroup();
+	var Iris = new L.LayerGroup();
+
+	//filters
+	var baseLayers = {
+	"ArcheAge Map": the_map
+	};
+	
+	var overlays = {
+	"Clovers" : Clover,
+	"Iris" : Iris
+	};
+	
+    L.control.layers(baseLayers, overlays).addTo(map);
+    
 
     L.control.liveCoordinates({ position: 'bottomright' }).addTo(map);
 
@@ -119,7 +132,7 @@ var clover_icon = new LeafIcon({iconUrl: 'images/Clover.png'}),
                 markerPopupHtml += "<br><strong>Description: </strong>" + entry['gsx$description']['$t'];
             }
             marker.bindPopup(markerPopupHtml); */
-            marker_1.addTo(map)
+            marker_1.addTo(Clover)
         })
     });
 
@@ -130,7 +143,7 @@ var clover_icon = new LeafIcon({iconUrl: 'images/Clover.png'}),
         console.log('google json', data);
         data.feed.entry.forEach(function(entry){
             var marker_2 = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: iris_icon});
-            marker_2.addTo(map)
+            marker_2.addTo(Iris)
         })
     });
 	var cities = L.layerGroup([marker_1]);
