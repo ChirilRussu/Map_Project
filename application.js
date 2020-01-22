@@ -63,8 +63,8 @@ $(function(){
     };
 
 	// variables defined with json links from the published google doc(s)
-    var googleSheetJsonUrl_1 = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/1/public/values?alt=json'
-	var googleSheetJsonUrl_2 = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/2/public/values?alt=json'
+    var googleSheetJsonUrl_1 = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/2/public/values?alt=json'
+	var googleSheetJsonUrl_2 = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/3/public/values?alt=json'
 	
 	// var attributionHTML = 'Map data &copy; <a href="https://map.playatlas.com/">Grapeshot Games</a>, ';
 	// attributionHTML += 'Grid map overlay by &copy; <a href="https://game-maps.com/ATLAS/ATLAS-MMO-World-Map.asp">Game-Maps.com</a>';
