@@ -95,17 +95,17 @@ $(function()
         minZoom: 1
     }).setView([-128, 128], 2);
 
-	//filters
-	var Clover = new L.LayerGroup();
-	var Iris = new L.LayerGroup();
-
 	//defining the base layer for the filter box - the world map.
 	var baseLayers = 
 	{
 	"ArcheAge Map": the_map
 	};
+
+	//filters - needs a new entry every sheet.
+	var Clover = new L.LayerGroup();
+	var Iris = new L.LayerGroup();
 	
-	// defining overlays - used as resource filters
+	// defining overlays - used as resource filters - needs a new entry every sheet
 	var overlays = 
 	{
 	"Clovers" : Clover,
@@ -126,22 +126,28 @@ $(function()
 			popupAnchor:  [-3, -76]
 		}
 	});
-
-	// Defining specific icons
-	var clover_icon = new Icon_Class({iconUrl: 'images/Clover.png'}),
-		iris_icon = new Icon_Class({iconUrl: 'images/Iris.png'});
+		
+	var N_of_sheets = 3;
+	var i;
 	
-	// Stores the data from the published JSON
-	var googleSheetJsonUrl_1 = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/'+2+'/public/values?alt=json'
-	var googleSheetJsonUrl_2 = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/3/public/values?alt=json'
+	for(i = 1; i < N_of_sheets; i++)
+	{
+		// Defining specific icons
+		// var icon_1 = new Icon_Class({iconUrl: 'images/i.png'}); // where i itterates
+		eval('var icon_' + i + " = new Icon_Class({iconUrl: 'images/'+ i +'.png'});");
+		
+		// Stores the data from the published JSON
+		// var googleSheetJsonUrl_i = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/i+1/public/values?alt=json' // where i itterates
+		eval('var googleSheetJsonUrl_' + i + '= ' + "'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/'" + '+(i+1)+' + "'/public/values?alt=json'");
+	}
 
-	// Markers from sheet 1 placed on the map
+	// Markers from a sheet placed on the map - - needs a new entry every sheet
+	// sheet 1
     $.ajax({url: googleSheetJsonUrl_1}).done(function(data)
 	{
-        console.log('google json', data);
         data.feed.entry.forEach(function(entry)
 		{
-			var marker_1 = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: clover_icon});
+			var marker_1 = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: icon_1}); // icon number changes
 			// on click popup sample code
          /* var markerPopupHtml = "<strong>Type: </strong>" + entry['gsx$group']['$t'];
             markerPopupHtml += "<br><strong>Name: </strong>" + entry['gsx$name']['$t'];
@@ -152,14 +158,14 @@ $(function()
             marker_1.addTo(Clover)
         })
     });
-
+	
 	//sheet 2
 	$.ajax({url: googleSheetJsonUrl_2}).done(function(data)
 	{
 		console.log('google json', data);
 		data.feed.entry.forEach(function(entry)
 		{
-            var marker_2 = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: iris_icon});
+            var marker_2 = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: icon_2}); // icon number changes
             marker_2.addTo(Iris)
         })
     });
