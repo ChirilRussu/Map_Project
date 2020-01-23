@@ -105,6 +105,10 @@ $(function()
 	var Clover = new L.LayerGroup();
 	var Iris = new L.LayerGroup();
 	
+	// turns the layers on by default - needs a new entry every sheet
+	map.addLayer(Clover)
+	map.addLayer(Iris)	
+	
 	// defining overlays - used as resource filters - needs a new entry every sheet
 	var overlays = 
 	{
