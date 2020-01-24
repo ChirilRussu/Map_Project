@@ -91,6 +91,7 @@ $(function()
 	
 	// map layer
     var the_map = L.imageOverlay('AAmap.png', [[0,0], [-259,256.5]]); 
+	
 	// map settings
     var map = L.map("map", 
 	{
@@ -193,6 +194,7 @@ $(function()
 			// adds the markers to the coordinates taken from the sheet and assigns an icon
 			var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: eval(resource_icon)});
 			marker.addTo(eval(icon_layer))
+			
 			// adds a popup if the sheet has something written in the popup cell
 			var markerPopupHtml;
             if (entry['gsx$popup']['$t'] != "")
