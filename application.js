@@ -147,30 +147,24 @@ $(function()
 
 	// Markers from a sheet placed on the map - - needs a new entry every sheet
 	// sheet 1
-    $.ajax({url: googleSheetJsonUrl_1}).done(function(data)
+    $.get({url: googleSheetJsonUrl_1}).then(function(data)
 	{
         data.feed.entry.forEach(function(entry)
 		{
-			var marker_1 = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: icon_1}); // icon number changes
-			// on click popup sample code
-         /* var markerPopupHtml = "<strong>Type: </strong>" + entry['gsx$group']['$t'];
-            markerPopupHtml += "<br><strong>Name: </strong>" + entry['gsx$name']['$t'];
-            if (entry['gsx$description']['$t'].length){
-                markerPopupHtml += "<br><strong>Description: </strong>" + entry['gsx$description']['$t'];
-            }
-            marker.bindPopup(markerPopupHtml); */
-            marker_1.addTo(Clover)
-        })
-    });
-	
-	//sheet 2
-	$.ajax({url: googleSheetJsonUrl_2}).done(function(data)
-	{
-		console.log('google json', data);
-		data.feed.entry.forEach(function(entry)
-		{
-            var marker_2 = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: icon_2}); // icon number changes
-            marker_2.addTo(Iris)
-        })
-    });
+			var resource_icon = entry['gsx$resource']['$t'];
+			var marker_1 = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: eval(resource_icon)}); // icon number changes
+			var icon_layer;
+			switch(resource_icon)
+				{
+				case "icon_1":
+				icon_layer = "Clover";
+				break;
+				case "icon_2":
+				icon_layer = "Iris";
+				break;
+				}
+				
+			marker_1.addTo(eval(icon_layer))
+		})
+	})
 });
