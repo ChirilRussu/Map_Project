@@ -161,7 +161,7 @@ $(function()
 
 	// Markers from a sheet placed on the map - needs a new entry every sheet
 	// sheet 1
-    $.get({url: googleSheetJsonUrl_1}).then(function(data)
+    $.get({url: googleSheetJsonUrl_1}).then(function(data) // +1 to the url when adding a getter
 	{
         data.feed.entry.forEach(function(entry)
 		{
