@@ -112,12 +112,12 @@ $(function()
 		eval("var filter_" + h + " = new L.LayerGroup();");
 	}	   // var filter_[h] = new L.LayerGroup(); where [h] increments
 		
-	// turns the layers on by default
+	// turns the filters on by default
 	/*
-	map.addLayer(Clover)     
-	map.addLayer(Iris)	     
-	map.addLayer(Mushroom)	 
-	map.addLayer(Thistle)	
+	map.addLayer(filter_0)     
+	map.addLayer(filter_1)	     
+	map.addLayer(filter_2)	 
+	map.addLayer(filter_3)	
 	*/
 	
 	// defining overlays - used as resource filters - needs a new entry every sheet
@@ -188,10 +188,10 @@ $(function()
 				icon_layer = "filter_3";
 				break;
 			}	
-				
-			var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: eval(resource_icon)}); // icon number changes
+			// adds the markers to the coordinates taken from the sheet and assigns an icon
+			var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: eval(resource_icon)});
 			marker.addTo(eval(icon_layer))
-			
+			// adds a popup if the sheet has something written in the popup cell
 			var markerPopupHtml;
             if (entry['gsx$popup']['$t'] != "")
 			{
