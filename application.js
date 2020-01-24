@@ -110,7 +110,7 @@ $(function()
 	for(h = 0; h < N_of_filters; h++)
 	{
 		eval("var filter_" + h + " = new L.LayerGroup();");
-	}	   // var filter_[h] = new L.LayerGroup(); where [h] increments
+	}	   // var filter_[h] = new L.LayerGroup(); // where [h] increments
 		
 	// turns the filters on by default
 	/*
@@ -150,14 +150,14 @@ $(function()
 	for(j = 0; j < N_of_sheets; j++)
 	{	
 		eval('var googleSheetJsonUrl_' + j + '= ' + "'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/'" + '+(j+1)+' + "'/public/values?alt=json'");
-	}      // var googleSheetJsonUrl_[j] = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/[j]+1/public/values?alt=json' // where [j] itterates
+	}      // var googleSheetJsonUrl_[j] = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/[j]+1/public/values?alt=json' // where [j] increments
 																																								  // + 1 to skip the info sheet
 	// Defining specific icons
 	var i;
 	for(i = 0; i < N_of_resources; i++)
 	{
 		eval('var icon_' + i + " = new Icon_Class({iconUrl: 'images/'+ i +'.png'});");
-	}      // var icon_[i] = new Icon_Class({iconUrl: 'images/[i].png'}); // where [i] itterates
+	}      // var icon_[i] = new Icon_Class({iconUrl: 'images/[i].png'}); // where [i] increments
 
 	// Markers from a sheet placed on the map - needs a new entry every sheet
 	// sheet 1
