@@ -109,7 +109,6 @@ $(function()
 	var h;
 	for(h = 0; h < N_of_filters; h++)
 	{
-		console.log(h)
 		eval("var filter_" + h + " = new L.LayerGroup();");
 	}	   // var filter_[h] = new L.LayerGroup(); where [h] increments
 		
@@ -201,6 +200,7 @@ $(function()
             }
 		})
 	})
+	
 	// load test
 	$.get({url: googleSheetJsonUrl_2}).then(function(data)
 	{
