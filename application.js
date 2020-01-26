@@ -92,7 +92,7 @@ $(function()
 	// map layer
     var the_map = L.imageOverlay('AAmap.png', [[0,0], [-259,256.5]]); 
 	
-	// map settings
+		// map settings
     var map = L.map("map", 
 	{
         crs: L.CRS.Simple,
@@ -135,6 +135,47 @@ $(function()
     L.control.layers(baseLayers, overlays).addTo(map);
     L.control.liveCoordinates({ position: 'bottomright' }).addTo(map);
 
+
+
+
+
+
+
+
+
+
+
+
+
+        var ctl = L.control.layers.tree(the_map, null,
+            {
+                namedToggle: true,
+                collapseAll: 'Collapse all',
+                expandAll: 'Expand all',
+                collapsed: false,
+            });
+
+	ctl.addTo(map).collapseTree().expandSelected();
+
+      var airportsEurope = {
+            label: 'Airports',
+            selectAllCheckbox: true,
+            children: [
+                {label: 'GERMANY',
+                    selectAllCheckbox: true,
+                    children: [
+                        {label: 'AACHEN - AAH', layer: L.marker([50.823000, 6.187000])},
+						]
+				}
+				]
+	  };
+
+ ctl.setOverlayTree(airportsEurope).collapseTree(true).expandSelected(true);
+ 
+ 
+
+
+
 	// Defining the icon class
 	var Icon_Class = L.Icon.extend(
 	{             
@@ -150,7 +191,7 @@ $(function()
 	var j;
 	for(j = 0; j < N_of_sheets; j++)
 	{										
-		eval('var googleSheetJsonUrl_' + j + '= ' + "'https://spreadsheets.google.com/feeds/list/1wtX_-TxHgM62Zk2MBFRzEY-sy03RtUxiSNe7_ykdfB4/'" + '+(j+1)+' + "'/public/values?alt=json'");
+		eval('var googleSheetJsonUrl_' + j + '= ' + "'https://spreadsheets.google.com/feeds/list/1wtX_-TxHgM62Zk2MBFRzEY-sy03RtUxiSNe7_ykdfB4/'" + '+(j)+' + "'/public/values?alt=json'");
 		// eval('var googleSheetJsonUrl_' + j + '= ' + "'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/'" + '+(j+1)+' + "'/public/values?alt=json'");
 	}      // var googleSheetJsonUrl_[j] = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/[j]+1/public/values?alt=json' // where [j] increments
 																																								  // + 1 to skip the info sheet
@@ -169,7 +210,18 @@ $(function()
 		{
 			var resource_name = entry['gsx$resource']['$t']; // stores the resource name from the sheet
 			var resource_icon;
-			var icon_layer;
+			var icon_layer = 
+			{
+				   selectAllCheckbox: true,
+            children: [
+                {label: 'GERMANY',
+                    selectAllCheckbox: true,
+                    children: [
+                        {label: 'AACHEN - AAH', layer: L.marker([50.823000, 6.187000])},
+						]
+				}
+				]
+			};
 			
 			switch(resource_name)	 		// Switch for icon selection and layer placement for filtering
 			{
