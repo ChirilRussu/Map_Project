@@ -121,8 +121,6 @@ $(function()
 	map.addLayer(filter_3)	
 	*/
 	
-	
-	
 	// defining overlays - used as resource filters - needs a new entry every sheet
 	var overlays = 
 	{
