@@ -85,7 +85,7 @@ $(function()
     });0
 	
 	// Values to change when adding things
-	var N_of_sheets = 1+3;		// +1 when adding a sheet   // an extra 1 becuase google sheets start counting at 1
+	var N_of_sheets = 1+3;		// +1 when adding a sheet
 	var N_of_filters = 4;		// +1 when adding a filter box
 	var N_of_resources = 4;		// +1 when adding a resource
 	
@@ -100,7 +100,7 @@ $(function()
         maxZoom: 6,
         minZoom: 1
     }).setView([-128, 128], 2);
-	
+
 	//defining the base layer for the filter box - the world map.
 	var baseLayers = 
 	{
@@ -115,7 +115,7 @@ $(function()
 		
 	// turns the filters on by default
 	/*
-    map.addLayer(filter_0) 
+	map.addLayer(filter_0)     
 	map.addLayer(filter_1)	     
 	map.addLayer(filter_2)	 
 	map.addLayer(filter_3)	
@@ -128,14 +128,13 @@ $(function()
 		
 		"Clovers" : filter_0,
 		"Iris" : filter_1,
-		"Thistle" : filter_3,
-		"Mushroom" : filter_2
-
+		"Mushroom" : filter_2,
+		"Thistle" : filter_3
 	}	// "NAME_OF_FILTER_HERE" : filter_			
 	// copy / paste / change the name that will display / add the next number to filter_ / add a comma to the previous one
 
 	// Adds base layer and overlays to the map
-    L.control.layers(baseLayers, overlays, {sortLayers: true,}).addTo(map);
+    L.control.layers(baseLayers, overlays).addTo(map);
     L.control.liveCoordinates({ position: 'bottomright' }).addTo(map);
 
 	// Defining the icon class
@@ -151,11 +150,12 @@ $(function()
 	
 	// Stores the data from the published JSON
 	var j;
-	for(j = 1; j < N_of_sheets; j++)
+	for(j = 0; j < N_of_sheets; j++)
 	{										
-		eval('var googleSheetJsonUrl_' + j + '= ' + "'https://spreadsheets.google.com/feeds/list/1wtX_-TxHgM62Zk2MBFRzEY-sy03RtUxiSNe7_ykdfB4/'" + '+(j)+' + "'/public/values?alt=json'");
-	}      // var googleSheetJsonUrl_[j] = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/[j]/public/values?alt=json' // where [j] increments
-																																								  
+		eval('var googleSheetJsonUrl_' + j + '= ' + "'https://spreadsheets.google.com/feeds/list/1wtX_-TxHgM62Zk2MBFRzEY-sy03RtUxiSNe7_ykdfB4/'" + '+(j+1)+' + "'/public/values?alt=json'");
+		// eval('var googleSheetJsonUrl_' + j + '= ' + "'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/'" + '+(j+1)+' + "'/public/values?alt=json'");
+	}      // var googleSheetJsonUrl_[j] = 'https://spreadsheets.google.com/feeds/list/1PIISVofJmBh0dNr4OkCzfepFKLSL2i5CUrGEdMhUnuA/[j]+1/public/values?alt=json' // where [j] increments
+																																								  // + 1 to skip the info sheet
 	// Defining specific icons
 	var i;
 	for(i = 0; i < N_of_resources; i++)
@@ -164,9 +164,8 @@ $(function()
 	}      // var icon_[i] = new Icon_Class({iconUrl: 'images/[i].png'}); // where [i] increments
 
 	// Markers from a sheet placed on the map - needs a new entry every sheet
-	// discord bot sheet
-	var k = 1; // used to itterate the url call of the getter
-    $.get({url: eval("googleSheetJsonUrl_"+ k)}).then(function(data)
+	// sheet 1
+    $.get({url: googleSheetJsonUrl_1}).then(function(data) // +1 to the url when adding a getter
 	{
         data.feed.entry.forEach(function(entry)
 		{
@@ -206,10 +205,9 @@ $(function()
             }
 		})
 	})
-	k++;
 	
-	// google form sheet
-	$.get({url: eval("googleSheetJsonUrl_"+ k)}).then(function(data)
+	// load test
+	$.get({url: googleSheetJsonUrl_2}).then(function(data)
 	{
         data.feed.entry.forEach(function(entry)
 		{
@@ -237,7 +235,7 @@ $(function()
 				break;
 			}	
 				
-			var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: eval(resource_icon)});
+			var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: eval(resource_icon)}); // icon number changes
 			marker.addTo(eval(icon_layer))
 			
 			var markerPopupHtml;
@@ -248,10 +246,9 @@ $(function()
             }
 		})
 	})
-	k++;
 	
-	// sheet 3
-	$.get({url: eval("googleSheetJsonUrl_"+ k)}).then(function(data)
+	// load test 2
+	$.get({url: googleSheetJsonUrl_3}).then(function(data)
 	{
         data.feed.entry.forEach(function(entry)
 		{
@@ -279,21 +276,15 @@ $(function()
 				break;
 			}	
 				
-			var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: eval(resource_icon)});
+			var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: eval(resource_icon)}); // icon number changes
 			marker.addTo(eval(icon_layer))
 			
 			var markerPopupHtml;
             if (entry['gsx$popup']['$t'] != "")
 			{
 				var markerPopupHtml = entry['gsx$popup']['$t'];
-				marker.bindPopup(markerPopupHtml);
+				marker_1.bindPopup(markerPopupHtml);
             }
 		})
 	})
-	k++;
-	
-});	
-
-
-
- 
+});
