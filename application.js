@@ -133,7 +133,7 @@ $(function()
 	// copy / paste / change the name that will display / add the next number to filter_ / add a comma to the previous one
 	
 	// Adds base layer and overlays to the map
-    L.control.layers(baseLayers, overlays, {sortLayers: true,}).addTo(map);
+    L.control.layers(baseLayers, overlays, {hideSingleBase: true} ,{sortLayers: true,}).addTo(map);
     L.control.liveCoordinates({ position: 'bottomright' }).addTo(map);
 
 	// Defining the icon class
