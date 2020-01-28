@@ -178,7 +178,7 @@ $(function()
 	
 	// Adds base layer and overlays to the map
     L.control.layers(baseLayers, overlays, {hideSingleBase: true} ,{sortLayers: true,}).addTo(map);
-    L.control.liveCoordinates({ position: 'bottomright' }).addTo(map);
+    L.control.liveCoordinates({ position: 'bottomleft' }).addTo(map);
 
 	// Defining the icon class
 	var Icon_Class = L.Icon.extend(
