@@ -2,7 +2,7 @@
 This application can be used to collaboratively fill out the position of resources, mobs, etc on a map.           
 
 # How it works:
-You feed the sheet the coordinates and name of the resource you want placed.        
+You feed the sheet with coordinates and names of the resource you want placed.        
 This application stores the google sheet's data.         
 Then places markers onto the map using that data.    
 Automatically assigns the markers an icon based on the name of the resource (case incensitive).     
