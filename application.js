@@ -122,9 +122,9 @@ $(function()
 	
 	// defining overlays - used as resource filters - needs a new entry every sheet
 	var overlays = 
-	{
-		"Clovers" : filter_1,
+	{		
 		"Iris" : filter_2,
+		"Clovers" : filter_1,		// test for alphabetization
 		"Mushroom" : filter_3,
 		"Thistle" : filter_4,
 		"Placeholder_1" : filter_5,
@@ -177,7 +177,7 @@ $(function()
 	// copy / paste / change the name that will display / add the next number to filter_ / add a comma to the previous one
 	
 	// Adds base layer and overlays to the map
-    L.control.layers(baseLayers, overlays, {hideSingleBase: true} ,{sortLayers: true,}).addTo(map);
+    L.control.layers(baseLayers, overlays, {hideSingleBase: true, sortLayers: true}).addTo(map);
     L.control.liveCoordinates({ position: 'bottomleft' }).addTo(map);
 
 	// Defining the icon class
