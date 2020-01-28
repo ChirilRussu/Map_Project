@@ -127,15 +127,15 @@ $(function()
 		"Clovers" : filter_1,		// test for alphabetization
 		"Mushroom" : filter_3,
 		"Thistle" : filter_4,
-		"Placeholder_1" : filter_5,
-		"Placeholder_2" : filter_6,
-		"Placeholder_3" : filter_7,
-		"Placeholder_4" : filter_8,
-		"Placeholder_5" : filter_9,
-		"Placeholder_6" : filter_10,
-		"Placeholder_7" : filter_11,
-		"Placeholder_8" : filter_12,
-		"Placeholder_9" : filter_13,
+		"Placeholder_01" : filter_5,
+		"Placeholder_02" : filter_6,
+		"Placeholder_03" : filter_7,
+		"Placeholder_04" : filter_8,
+		"Placeholder_05" : filter_9,
+		"Placeholder_06" : filter_10,
+		"Placeholder_07" : filter_11,
+		"Placeholder_08" : filter_12,
+		"Placeholder_09" : filter_13,
 		"Placeholder_10" : filter_14,
 		"Placeholder_11" : filter_15,
 		"Placeholder_12" : filter_16,
@@ -234,39 +234,39 @@ $(function()
 				marker_icon = "icon_4";
 				filter_layer = "filter_4";
 				break;
-				case "placeholder_1":
+				case "placeholder_01":
 				marker_icon = "icon_0";
 				filter_layer = "filter_5";
 				break;
-				case "placeholder_2":
+				case "placeholder_02":
 				marker_icon = "icon_0";
 				filter_layer = "filter_6";
 				break;
-				case "placeholder_3":
+				case "placeholder_03":
 				marker_icon = "icon_0";
 				filter_layer = "filter_7";
 				break;
-				case "placeholder_4":
+				case "placeholder_04":
 				marker_icon = "icon_0";
 				filter_layer = "filter_8";
 				break;
-				case "placeholder_5":
+				case "placeholder_05":
 				marker_icon = "icon_0";
 				filter_layer = "filter_9";
 				break;
-				case "placeholder_6":
+				case "placeholder_06":
 				marker_icon = "icon_0";
 				filter_layer = "filter_10";
 				break;
-				case "placeholder_7":
+				case "placeholder_07":
 				marker_icon = "icon_0";
 				filter_layer = "filter_11";
 				break;
-				case "placeholder_8":
+				case "placeholder_08":
 				marker_icon = "icon_0";
 				filter_layer = "filter_12";
 				break;
-				case "placeholder_9":
+				case "placeholder_09":
 				marker_icon = "icon_0";
 				filter_layer = "filter_13";
 				break;
