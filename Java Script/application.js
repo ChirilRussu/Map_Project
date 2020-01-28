@@ -90,7 +90,7 @@ $(function()
 	var N_of_resources = 54;	// +1 when adding a resource
 	
 	// map layer
-    var the_map = L.imageOverlay('AAmap.png', [[0,0], [-259,256.5]]); 
+    var the_map = L.imageOverlay('images/AAmap.png', [[0,0], [-259,256.5]]); 
 	
 	// map settings
     var map = L.map("map", 
