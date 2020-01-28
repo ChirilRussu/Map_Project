@@ -90,7 +90,7 @@ $(function()
 	var N_of_resources = 54;	// +1 when adding a resource
 	
 	// map layer
-    var the_map = L.imageOverlay('images/AAmap.png', [[0,0], [-259,256.5]]); 
+    var the_map = L.imageOverlay('Images/AAmap.png', [[0,0], [-259,256.5]]); 
 	
 	// map settings
     var map = L.map("map", 
@@ -202,8 +202,8 @@ $(function()
 	var i;
 	for(i = 0; i < N_of_resources; i++)
 	{
-		eval('var icon_' + i + " = new Icon_Class({iconUrl: 'images/'+ i +'.png'});");
-	}      // var icon_[i] = new Icon_Class({iconUrl: 'images/[i].png'}); // where [i] increments
+		eval('var icon_' + i + " = new Icon_Class({iconUrl: 'Images/'+ i +'.png'});");
+	}      // var icon_[i] = new Icon_Class({iconUrl: 'mages/[i].png'}); // where [i] increments
 
 	// Markers from a sheet placed on the map - needs a new getter every sheet and a new switch every resource
 	// discord bot sheet
@@ -457,9 +457,9 @@ $(function()
 			
 			switch(resource_name.toLowerCase())
 			{
-				case "clover":		
-				marker_icon = "icon_1"; 
-				filter_layer = "filter_1";
+				case "clover":		 		// reads the resource name from the sheet, must be lower case 	
+				marker_icon = "icon_1";     // assigns icon 1 to the marker
+				filter_layer = "filter_1";	// assigns the marker to filter 1
 				break;
 				case "iris":
 				marker_icon = "icon_2";
@@ -473,9 +473,201 @@ $(function()
 				marker_icon = "icon_4";
 				filter_layer = "filter_4";
 				break;
-				case "placeholder_1":
+				case "placeholder_01":
 				marker_icon = "icon_0";
 				filter_layer = "filter_5";
+				break;
+				case "placeholder_02":
+				marker_icon = "icon_0";
+				filter_layer = "filter_6";
+				break;
+				case "placeholder_03":
+				marker_icon = "icon_0";
+				filter_layer = "filter_7";
+				break;
+				case "placeholder_04":
+				marker_icon = "icon_0";
+				filter_layer = "filter_8";
+				break;
+				case "placeholder_05":
+				marker_icon = "icon_0";
+				filter_layer = "filter_9";
+				break;
+				case "placeholder_06":
+				marker_icon = "icon_0";
+				filter_layer = "filter_10";
+				break;
+				case "placeholder_07":
+				marker_icon = "icon_0";
+				filter_layer = "filter_11";
+				break;
+				case "placeholder_08":
+				marker_icon = "icon_0";
+				filter_layer = "filter_12";
+				break;
+				case "placeholder_09":
+				marker_icon = "icon_0";
+				filter_layer = "filter_13";
+				break;
+				case "placeholder_10":
+				marker_icon = "icon_0";
+				filter_layer = "filter_14";
+				break;
+				case "placeholder_11":
+				marker_icon = "icon_0";
+				filter_layer = "filter_15";
+				break;
+				case "placeholder_12":
+				marker_icon = "icon_0";
+				filter_layer = "filter_16";
+				break;
+				case "placeholder_13":
+				marker_icon = "icon_0";
+				filter_layer = "filter_17";
+				break;
+				case "placeholder_14":
+				marker_icon = "icon_0";
+				filter_layer = "filter_18";
+				break;
+				case "placeholder_15":
+				marker_icon = "icon_0";
+				filter_layer = "filter_19";
+				break;
+				case "placeholder_16":
+				marker_icon = "icon_0";
+				filter_layer = "filter_20";
+				break;
+				case "placeholder_17":
+				marker_icon = "icon_0";
+				filter_layer = "filter_21";
+				break;
+				case "placeholder_18":
+				marker_icon = "icon_0";
+				filter_layer = "filter_22";
+				break;
+				case "placeholder_19":
+				marker_icon = "icon_0";
+				filter_layer = "filter_23";
+				break;
+				case "placeholder_20":
+				marker_icon = "icon_0";
+				filter_layer = "filter_24";
+				break;
+				case "placeholder_21":
+				marker_icon = "icon_0";
+				filter_layer = "filter_25";
+				break;
+				case "placeholder_22":
+				marker_icon = "icon_0";
+				filter_layer = "filter_26";
+				break;
+				case "placeholder_23":
+				marker_icon = "icon_0";
+				filter_layer = "filter_27";
+				break;
+				case "placeholder_24":
+				marker_icon = "icon_0";
+				filter_layer = "filter_28";
+				break;
+				case "placeholder_25":
+				marker_icon = "icon_0";
+				filter_layer = "filter_29";
+				break;
+				case "placeholder_26":
+				marker_icon = "icon_0";
+				filter_layer = "filter_30";
+				break;
+				case "placeholder_27":
+				marker_icon = "icon_0";
+				filter_layer = "filter_31";
+				break;
+				case "placeholder_28":
+				marker_icon = "icon_0";
+				filter_layer = "filter_33";
+				break;
+				case "placeholder_29":
+				marker_icon = "icon_0";
+				filter_layer = "filter_34";
+				break;
+				case "placeholder_30":
+				marker_icon = "icon_0";
+				filter_layer = "filter_35";
+				break;
+				case "placeholder_31":
+				marker_icon = "icon_0";
+				filter_layer = "filter_36";
+				break;
+				case "placeholder_32":
+				marker_icon = "icon_0";
+				filter_layer = "filter_37";
+				break;
+				case "placeholder_34":
+				marker_icon = "icon_0";
+				filter_layer = "filter_38";
+				break;
+				case "placeholder_35":
+				marker_icon = "icon_0";
+				filter_layer = "filter_39";
+				break;
+				case "placeholder_36":
+				marker_icon = "icon_0";
+				filter_layer = "filter_40";
+				break;
+				case "placeholder_37":
+				marker_icon = "icon_0";
+				filter_layer = "filter_41";
+				break;
+				case "placeholder_38":
+				marker_icon = "icon_0";
+				filter_layer = "filter_42";
+				break;
+				case "placeholder_39":
+				marker_icon = "icon_0";
+				filter_layer = "filter_43";
+				break;
+				case "placeholder_40":
+				marker_icon = "icon_0";
+				filter_layer = "filter_44";
+				break;
+				case "placeholder_41":
+				marker_icon = "icon_0";
+				filter_layer = "filter_45";
+				break;
+				case "placeholder_42":
+				marker_icon = "icon_0";
+				filter_layer = "filter_46";
+				break;
+				case "placeholder_43":
+				marker_icon = "icon_0";
+				filter_layer = "filter_47";
+				break;
+				case "placeholder_44":
+				marker_icon = "icon_0";
+				filter_layer = "filter_48";
+				break;
+				case "placeholder_45":
+				marker_icon = "icon_0";
+				filter_layer = "filter_49";
+				break;
+				case "placeholder_46":
+				marker_icon = "icon_0";
+				filter_layer = "filter_50";
+				break;
+				case "placeholder_47":
+				marker_icon = "icon_0";
+				filter_layer = "filter_51";
+				break;
+				case "placeholder_48":
+				marker_icon = "icon_0";
+				filter_layer = "filter_52";
+				break;
+				case "placeholder_49":
+				marker_icon = "icon_0";
+				filter_layer = "filter_53";
+				break;
+				case "placeholder_50":
+				marker_icon = "icon_0";
+				filter_layer = "filter_54";
 				break;
 			}	
 				
@@ -503,9 +695,9 @@ $(function()
 			
 			switch(resource_name.toLowerCase())
 			{
-				case "clover":		
-				marker_icon = "icon_1"; 
-				filter_layer = "filter_1";
+				case "clover":		 		// reads the resource name from the sheet, must be lower case 	
+				marker_icon = "icon_1";     // assigns icon 1 to the marker
+				filter_layer = "filter_1";	// assigns the marker to filter 1
 				break;
 				case "iris":
 				marker_icon = "icon_2";
@@ -519,9 +711,201 @@ $(function()
 				marker_icon = "icon_4";
 				filter_layer = "filter_4";
 				break;
-				case "Placeholder_1":
+				case "placeholder_01":
 				marker_icon = "icon_0";
 				filter_layer = "filter_5";
+				break;
+				case "placeholder_02":
+				marker_icon = "icon_0";
+				filter_layer = "filter_6";
+				break;
+				case "placeholder_03":
+				marker_icon = "icon_0";
+				filter_layer = "filter_7";
+				break;
+				case "placeholder_04":
+				marker_icon = "icon_0";
+				filter_layer = "filter_8";
+				break;
+				case "placeholder_05":
+				marker_icon = "icon_0";
+				filter_layer = "filter_9";
+				break;
+				case "placeholder_06":
+				marker_icon = "icon_0";
+				filter_layer = "filter_10";
+				break;
+				case "placeholder_07":
+				marker_icon = "icon_0";
+				filter_layer = "filter_11";
+				break;
+				case "placeholder_08":
+				marker_icon = "icon_0";
+				filter_layer = "filter_12";
+				break;
+				case "placeholder_09":
+				marker_icon = "icon_0";
+				filter_layer = "filter_13";
+				break;
+				case "placeholder_10":
+				marker_icon = "icon_0";
+				filter_layer = "filter_14";
+				break;
+				case "placeholder_11":
+				marker_icon = "icon_0";
+				filter_layer = "filter_15";
+				break;
+				case "placeholder_12":
+				marker_icon = "icon_0";
+				filter_layer = "filter_16";
+				break;
+				case "placeholder_13":
+				marker_icon = "icon_0";
+				filter_layer = "filter_17";
+				break;
+				case "placeholder_14":
+				marker_icon = "icon_0";
+				filter_layer = "filter_18";
+				break;
+				case "placeholder_15":
+				marker_icon = "icon_0";
+				filter_layer = "filter_19";
+				break;
+				case "placeholder_16":
+				marker_icon = "icon_0";
+				filter_layer = "filter_20";
+				break;
+				case "placeholder_17":
+				marker_icon = "icon_0";
+				filter_layer = "filter_21";
+				break;
+				case "placeholder_18":
+				marker_icon = "icon_0";
+				filter_layer = "filter_22";
+				break;
+				case "placeholder_19":
+				marker_icon = "icon_0";
+				filter_layer = "filter_23";
+				break;
+				case "placeholder_20":
+				marker_icon = "icon_0";
+				filter_layer = "filter_24";
+				break;
+				case "placeholder_21":
+				marker_icon = "icon_0";
+				filter_layer = "filter_25";
+				break;
+				case "placeholder_22":
+				marker_icon = "icon_0";
+				filter_layer = "filter_26";
+				break;
+				case "placeholder_23":
+				marker_icon = "icon_0";
+				filter_layer = "filter_27";
+				break;
+				case "placeholder_24":
+				marker_icon = "icon_0";
+				filter_layer = "filter_28";
+				break;
+				case "placeholder_25":
+				marker_icon = "icon_0";
+				filter_layer = "filter_29";
+				break;
+				case "placeholder_26":
+				marker_icon = "icon_0";
+				filter_layer = "filter_30";
+				break;
+				case "placeholder_27":
+				marker_icon = "icon_0";
+				filter_layer = "filter_31";
+				break;
+				case "placeholder_28":
+				marker_icon = "icon_0";
+				filter_layer = "filter_33";
+				break;
+				case "placeholder_29":
+				marker_icon = "icon_0";
+				filter_layer = "filter_34";
+				break;
+				case "placeholder_30":
+				marker_icon = "icon_0";
+				filter_layer = "filter_35";
+				break;
+				case "placeholder_31":
+				marker_icon = "icon_0";
+				filter_layer = "filter_36";
+				break;
+				case "placeholder_32":
+				marker_icon = "icon_0";
+				filter_layer = "filter_37";
+				break;
+				case "placeholder_34":
+				marker_icon = "icon_0";
+				filter_layer = "filter_38";
+				break;
+				case "placeholder_35":
+				marker_icon = "icon_0";
+				filter_layer = "filter_39";
+				break;
+				case "placeholder_36":
+				marker_icon = "icon_0";
+				filter_layer = "filter_40";
+				break;
+				case "placeholder_37":
+				marker_icon = "icon_0";
+				filter_layer = "filter_41";
+				break;
+				case "placeholder_38":
+				marker_icon = "icon_0";
+				filter_layer = "filter_42";
+				break;
+				case "placeholder_39":
+				marker_icon = "icon_0";
+				filter_layer = "filter_43";
+				break;
+				case "placeholder_40":
+				marker_icon = "icon_0";
+				filter_layer = "filter_44";
+				break;
+				case "placeholder_41":
+				marker_icon = "icon_0";
+				filter_layer = "filter_45";
+				break;
+				case "placeholder_42":
+				marker_icon = "icon_0";
+				filter_layer = "filter_46";
+				break;
+				case "placeholder_43":
+				marker_icon = "icon_0";
+				filter_layer = "filter_47";
+				break;
+				case "placeholder_44":
+				marker_icon = "icon_0";
+				filter_layer = "filter_48";
+				break;
+				case "placeholder_45":
+				marker_icon = "icon_0";
+				filter_layer = "filter_49";
+				break;
+				case "placeholder_46":
+				marker_icon = "icon_0";
+				filter_layer = "filter_50";
+				break;
+				case "placeholder_47":
+				marker_icon = "icon_0";
+				filter_layer = "filter_51";
+				break;
+				case "placeholder_48":
+				marker_icon = "icon_0";
+				filter_layer = "filter_52";
+				break;
+				case "placeholder_49":
+				marker_icon = "icon_0";
+				filter_layer = "filter_53";
+				break;
+				case "placeholder_50":
+				marker_icon = "icon_0";
+				filter_layer = "filter_54";
 				break;
 			}	
 				
