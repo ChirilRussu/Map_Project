@@ -119,60 +119,63 @@ $(function()
 	map.addLayer(filter_2)	 
 	map.addLayer(filter_3)	
 	*/
+
 	
+
 	// defining overlays - used as resource filters - needs a new entry every sheet
 	var overlays = 
-	{		
+	{	
+		
 		"Iris" : filter_2,
 		"Clovers" : filter_1,		// test for alphabetization
 		"Mushroom" : filter_3,
 		"Thistle" : filter_4,
-		"Placeholder_01" : filter_5,
-		"Placeholder_02" : filter_6,
-		"Placeholder_03" : filter_7,
-		"Placeholder_04" : filter_8,
-		"Placeholder_05" : filter_9,
-		"Placeholder_06" : filter_10,
-		"Placeholder_07" : filter_11,
-		"Placeholder_08" : filter_12,
-		"Placeholder_09" : filter_13,
-		"Placeholder_10" : filter_14,
-		"Placeholder_11" : filter_15,
-		"Placeholder_12" : filter_16,
-		"Placeholder_13" : filter_17,
-		"Placeholder_14" : filter_18,
-		"Placeholder_15" : filter_19,
-		"Placeholder_16" : filter_20,
-		"Placeholder_17" : filter_21,
-		"Placeholder_18" : filter_22,
-		"Placeholder_19" : filter_23,
-		"Placeholder_20" : filter_24,
-		"Placeholder_21" : filter_25,
-		"Placeholder_22" : filter_26,
-		"Placeholder_23" : filter_27,
-		"Placeholder_24" : filter_28,
-		"Placeholder_25" : filter_29,
-		"Placeholder_26" : filter_30,
-		"Placeholder_27" : filter_31,
-		"Placeholder_28" : filter_32,
-		"Placeholder_29" : filter_33,
-		"Placeholder_30" : filter_34,
-		"Placeholder_31" : filter_35,
-		"Placeholder_32" : filter_36,
-		"Placeholder_33" : filter_37,
-		"Placeholder_34" : filter_38,
-		"Placeholder_35" : filter_39,
-		"Placeholder_36" : filter_40,
-		"Placeholder_37" : filter_41,
-		"Placeholder_38" : filter_42,
-		"Placeholder_39" : filter_43,
-		"Placeholder_40" : filter_44,
-		"Placeholder_41" : filter_45,
-		"Placeholder_42" : filter_46,
-		"Placeholder_43" : filter_47,
-		"Placeholder_44" : filter_48,
-		"Placeholder_45" : filter_49,
-		"Placeholder_46" : filter_50
+		"zPlaceholder_01" : filter_5,
+		"zPlaceholder_02" : filter_6,
+		"zPlaceholder_03" : filter_7,
+		"zPlaceholder_04" : filter_8,
+		"zPlaceholder_05" : filter_9,
+		"zPlaceholder_06" : filter_10,
+		"zPlaceholder_07" : filter_11,
+		"zPlaceholder_08" : filter_12,
+		"zPlaceholder_09" : filter_13,
+		"zPlaceholder_10" : filter_14,
+		"zPlaceholder_11" : filter_15,
+		"zPlaceholder_12" : filter_16,
+		"zPlaceholder_13" : filter_17,
+		"zPlaceholder_14" : filter_18,
+		"zPlaceholder_15" : filter_19,
+		"zPlaceholder_16" : filter_20,
+		"zPlaceholder_17" : filter_21,
+		"zPlaceholder_18" : filter_22,
+		"zPlaceholder_19" : filter_23,
+		"zPlaceholder_20" : filter_24,
+		"zPlaceholder_21" : filter_25,
+		"zPlaceholder_22" : filter_26,
+		"zPlaceholder_23" : filter_27,
+		"zPlaceholder_24" : filter_28,
+		"zPlaceholder_25" : filter_29,
+		"zPlaceholder_26" : filter_30,
+		"zPlaceholder_27" : filter_31,
+		"zPlaceholder_28" : filter_32,
+		"zPlaceholder_29" : filter_33,
+		"zPlaceholder_30" : filter_34,
+		"zPlaceholder_31" : filter_35,
+		"zPlaceholder_32" : filter_36,
+		"zPlaceholder_33" : filter_37,
+		"zPlaceholder_34" : filter_38,
+		"zPlaceholder_35" : filter_39,
+		"zPlaceholder_36" : filter_40,
+		"zPlaceholder_37" : filter_41,
+		"zPlaceholder_38" : filter_42,
+		"zPlaceholder_39" : filter_43,
+		"zPlaceholder_40" : filter_44,
+		"zPlaceholder_41" : filter_45,
+		"zPlaceholder_42" : filter_46,
+		"zPlaceholder_43" : filter_47,
+		"zPlaceholder_44" : filter_48,
+		"zPlaceholder_45" : filter_49,
+		"zPlaceholder_46" : filter_50
 	}// "NAME_OF_FILTER_HERE" : filter_			
 	// copy / paste / change the name that will display / add the next number to filter_ / add a comma to the previous one
 	
@@ -430,10 +433,12 @@ $(function()
 				marker_icon = "icon_0";
 				filter_layer = "filter_54";
 				break;
+			
 			}	
 			// adds the markers to the coordinates taken from the sheet and assigns an icon
 			var marker = L.marker([entry['gsx$y-axis']['$t'], entry['gsx$x-axis']['$t']], {icon: eval(marker_icon)});
-			marker.addTo(eval(filter_layer))
+			marker.addTo(eval(filter_layer));
+		
 			
 			// adds a popup if the sheet has something written in the popup cell
 			var markerPopupHtml;
