@@ -1,0 +1,30 @@
+# About MMO-Map-Project     
+This application can be used to collaboratively fill out the position of resources, mobs, etc on a map.           
+
+# How it works:
+You feed the sheet the coordinates and name of the resource you want placed.        
+This application stores the google sheet's data.         
+Then places markers onto the map using that data.    
+Automatically assigns the markers an icon based on the name of the resource (case incensitive).     
+Marker popups only appear when there is text in the appropriate cell.                 
+Every resource has its own filter.       
+You can zoom in and out on the map.    
+It has a coordinate system.         
+
+# Screenshots:               
+The application:            
+![](images/Screenshots/Map-Screenshot.png)              
+
+Structure of the google sheet,  
+Column setup:     
+![](images/Screenshots/Gdoc-Top.png)     
+Sheet setup:     
+![](images/Screenshots/Gdoc-Bot.png)
+
+# Based on:    
+![Leaflet](https://leafletjs.com/)    
+![Atlas-MMO-Resource-Map](https://github.com/ipepe/atlas-mmo-resources-map)     
+Optional data feed methods can be through:    
+![Discord2Sheet-Bot](https://github.com/hugonun/discord2sheet-bot)     
+and/or a [google form](https://www.google.com/forms/about/)        
+
