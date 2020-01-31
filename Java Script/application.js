@@ -41,7 +41,6 @@ $(function()
 
             if (pos) 
 			{
-                pos = pos.wrap();
                 var mapcode = this.x_y_map_code(pos);
                 this._label.innerHTML = this._createMapcodeLabel(mapcode);
             }
