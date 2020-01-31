@@ -14,13 +14,13 @@ On click (LMB) the current coordinates are coppied to the clipboard for ease of 
 
 # Screenshots:               
 The application:            
-![](images/Screenshots/Map-Screenshot.png)              
+[](images/Screenshots/Map-Screenshot.png)              
 
 Structure of the google sheet,  
 Column setup:     
-![](images/Screenshots/Gdoc-Top.png)     
+[](images/Screenshots/Gdoc-Top.png)     
 Sheet setup:     
-![](images/Screenshots/Gdoc-Bot.png)
+[](images/Screenshots/Gdoc-Bot.png)
 
 # Based on:    
 [Leaflet](https://leafletjs.com/)    
