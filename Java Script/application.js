@@ -106,6 +106,7 @@ $(function()
 	{
 		var x_y_string = $('<input>').val(x + ' , ' + y).appendTo('body').select()
 		document.execCommand('copy')
+		$(x_y_string).remove(); // removes the string from the screen
 	}
 		map.on('click', onMapClick);
 	
