@@ -49,8 +49,8 @@ $(function()
 		// x y coordinates
 		x_y_map_code: function(point)
 		{
-            var x = point.lng;
-			var y = point.lat;
+            x = point.lng;
+			y = point.lat;
             return x.toFixed(1) + ', ' + y.toFixed(1);
         },
 
@@ -66,14 +66,14 @@ $(function()
                 l = L.Util.template(opts.labelTemplate, {0: mapcode});
             }
             return l;
-        }
+        }		
     });
 
     L.control.liveCoordinates = function(opts) 
 	{
         return new L.Control.LiveMouseCoordinatesControl(opts);
     };
-	
+		
 	// unused but the application expects tiles
 	var officialMapLayer = L.tileLayer("tiles/{z}/{x}/{y}.png", 
 	{
@@ -94,11 +94,20 @@ $(function()
 	// map settings
     var map = L.map("map", 
 	{
+		doubleClickZoom: false,
         crs: L.CRS.Simple,
         layers: [officialMapLayer, the_map],
         maxZoom: 6,
         minZoom: 1
     }).setView([-128, 128], 2);
+	
+	// on mouse click coordinates to clipboard	
+	function onMapClick()
+	{
+		var x_y_string = $('<input>').val(x + ' , ' + y).appendTo('body').select()
+		document.execCommand('copy')
+	}
+		map.on('click', onMapClick);
 	
 	//defining the base layer for the filter box - the world map.
 	var baseLayers = 
