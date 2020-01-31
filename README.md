@@ -28,4 +28,3 @@ Sheet setup:
 Optional data feed methods can be through:    
 [Discord2Sheet-Bot](https://github.com/hugonun/discord2sheet-bot)     
 and/or a [google form](https://www.google.com/forms/about/)        
-
