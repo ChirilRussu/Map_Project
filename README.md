@@ -23,9 +23,9 @@ Sheet setup:
 ![](images/Screenshots/Gdoc-Bot.png)
 
 # Based on:    
-![Leaflet](https://leafletjs.com/)    
-![Atlas-MMO-Resource-Map](https://github.com/ipepe/atlas-mmo-resources-map)     
+[Leaflet](https://leafletjs.com/)    
+[Atlas-MMO-Resource-Map](https://github.com/ipepe/atlas-mmo-resources-map)     
 Optional data feed methods can be through:    
-![Discord2Sheet-Bot](https://github.com/hugonun/discord2sheet-bot)     
+[Discord2Sheet-Bot](https://github.com/hugonun/discord2sheet-bot)     
 and/or a [google form](https://www.google.com/forms/about/)        
 
