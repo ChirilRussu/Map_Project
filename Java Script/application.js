@@ -79,7 +79,7 @@ $(function()
 	{
     maxZoom: 6,
     minZoom: 1,
-    bounds: L.latLngBounds([0,0],[-256,256]),
+    bounds: L.latLngBounds([0,0],[256,256]),
     noWrap: true,
     });0
 	
@@ -89,7 +89,7 @@ $(function()
 	var N_of_resources = 54;	// +1 when adding a resource
 	
 	// map layer
-    var the_map = L.imageOverlay('Images/AAmap.png', [[0,0], [-259,256.5]]); 
+    var the_map = L.imageOverlay('Images/AAmap.png', [[0,0], [-259,256.5]]); //[y,x], [y,x] 
 	
 	// map settings
     var map = L.map("map", 
