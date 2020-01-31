@@ -8,9 +8,8 @@ Then places markers onto the map using that data.
 Automatically assigns the markers an icon based on the name of the resource (case incensitive).     
 Marker popups only appear when there is text in the appropriate cell.                 
 Every resource has its own filter.       
-You can zoom in and out on the map with scroll wheel or the on screen buttons.    
-Coordinate displayed on bottom left.      
-On click (LMB) the current coordinates are coppied to the clipboard for ease of input.
+You can zoom in and out on the map.    
+It has a coordinate system.         
 
 # Screenshots:               
 The application:            
@@ -23,9 +22,9 @@ Sheet setup:
 ![](images/Screenshots/Gdoc-Bot.png)
 
 # Based on:    
-[Leaflet](https://leafletjs.com/)    
-[Atlas-MMO-Resource-Map](https://github.com/ipepe/atlas-mmo-resources-map)     
+![Leaflet](https://leafletjs.com/)    
+![Atlas-MMO-Resource-Map](https://github.com/ipepe/atlas-mmo-resources-map)     
 Optional data feed methods can be through:    
-[Discord2Sheet-Bot](https://github.com/hugonun/discord2sheet-bot)     
+![Discord2Sheet-Bot](https://github.com/hugonun/discord2sheet-bot)     
 and/or a [google form](https://www.google.com/forms/about/)        
 
