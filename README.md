@@ -8,8 +8,9 @@ Then places markers onto the map using that data.
 Automatically assigns the markers an icon based on the name of the resource (case incensitive).     
 Marker popups only appear when there is text in the appropriate cell.                 
 Every resource has its own filter.       
-You can zoom in and out on the map.    
-It has a coordinate system.         
+You can zoom in and out on the map with scroll wheel or the on screen buttons.    
+Coordinate displayed on bottom left.      
+On click (LMB) the current coordinates are coppied to the clipboard for ease of input.
 
 # Screenshots:               
 The application:            
