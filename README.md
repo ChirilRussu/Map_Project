@@ -1,5 +1,6 @@
 # About MMO-Map-Project     
-This application can be used to collaboratively fill out the position of resources, mobs, etc on a map.           
+This application can be used to collaboratively fill out the position of resources, mobs, etc on a map. 
+https://www.youtube.com/watch?v=HVLnytJOPtY        
 
 # How it works:
 You feed the sheet with coordinates and names of the resource you want placed.        
