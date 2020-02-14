@@ -86,7 +86,7 @@ $(function()
 	// Values to change when adding things
 	var N_of_sheets = 1+3;		// +1 when adding a sheet  		 // an extra 1 becuase google sheets start counting at 1
 	var N_of_filters = 1+54;	// +1 when adding a filter box	 // an extra 1 because filter 0 corresponds to icon 0 which is a placeholders
-	var N_of_resources = 54;	// +1 when adding a resource
+	var N_of_resources = 1+54;	// +1 when adding a resource	 // an extra 1 as above
 	
 	// map layer
     var the_map = L.imageOverlay('Images/AAmap.png', [[0,0], [-259,256.5]]); //[y,x], [y,x] 
