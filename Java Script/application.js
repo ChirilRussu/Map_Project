@@ -134,7 +134,7 @@ $(function()
 	// defining overlays - used as resource filters - needs a new entry every sheet
 	var overlays = 
 	{	
-		
+	
 		"Iris" : filter_2,
 		"Clovers" : filter_1,		// test for alphabetization
 		"Mushroom" : filter_3,
