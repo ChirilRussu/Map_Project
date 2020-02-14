@@ -117,7 +117,7 @@ $(function()
 	};
 
 	var h;
-	for(h = 1; h < N_of_filters; h++)		// h = 1 and not 0 becuase icon 0 is for placeholders and doens't need a filter
+	for(h = 0; h < N_of_filters; h++)
 	{
 		eval("var filter_" + h + " = new L.LayerGroup();");
 	}	   // var filter_[h] = new L.LayerGroup(); // where [h] increments
@@ -134,7 +134,7 @@ $(function()
 	// defining overlays - used as resource filters - needs a new entry every sheet
 	var overlays = 
 	{	
-	
+		"A error list": filter_0,
 		"Iris" : filter_2,
 		"Clovers" : filter_1,		// test for alphabetization
 		"Mushroom" : filter_3,
@@ -229,7 +229,11 @@ $(function()
 			var filter_layer;								 // used to pass the filter to which a marker will be assigned to
 															 // Switch for icon selection and layer placement for filtering
 			switch(resource_name.toLowerCase())	 			 // makes the input string lower case for case insensitivity
-			{
+			{	
+				default:
+				marker_icon = "icon_0";
+				filter_layer = "filter_0";
+				break;
 				case "clover":		 		// reads the resource name from the sheet, must be lower case 	
 				marker_icon = "icon_1";     // assigns icon 1 to the marker
 				filter_layer = "filter_1";	// assigns the marker to filter 1
@@ -442,6 +446,7 @@ $(function()
 				marker_icon = "icon_0";
 				filter_layer = "filter_54";
 				break;
+				
 			
 			}	
 			// adds the markers to the coordinates taken from the sheet and assigns an icon
@@ -471,6 +476,10 @@ $(function()
 			
 			switch(resource_name.toLowerCase())
 			{
+				default:
+				marker_icon = "icon_0";
+				filter_layer = "filter_0";
+				break;
 				case "clover":		 		// reads the resource name from the sheet, must be lower case 	
 				marker_icon = "icon_1";     // assigns icon 1 to the marker
 				filter_layer = "filter_1";	// assigns the marker to filter 1
@@ -709,6 +718,10 @@ $(function()
 			
 			switch(resource_name.toLowerCase())
 			{
+				default:
+				marker_icon = "icon_0";
+				filter_layer = "filter_0";
+				break;
 				case "clover":		 		// reads the resource name from the sheet, must be lower case 	
 				marker_icon = "icon_1";     // assigns icon 1 to the marker
 				filter_layer = "filter_1";	// assigns the marker to filter 1
