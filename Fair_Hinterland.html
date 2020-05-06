@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Legacy Last Oasis Map</title>
+    
+    <link rel="stylesheet" href="leaflet.css"/>
+    <script src="Java%20Script/leaflet.js"></script>
+	
+	<link rel="stylesheet" href="CSS/easy-button.css">
+  <link rel="stylesheet" type="text/css" href="CSS/auth.css" />
+
+    <script src="Java%20Script/easy-button.js"></script>
+    
+	<link rel="stylesheet" href="CSS/all.css">
+    <script src="Java%20Script/jquery-3.3.1.min.js"></script>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      html, body, #map {
+        height: 100%;
+        width: 100vw;
+        background-color: #146986;
+      }
+
+      .leaflet-control-mapcodes {
+        background-color:#D8D8D8;
+        background-color:rgba(255, 255, 255, 0.8);
+        cursor:pointer;
+        color:black;
+        font-size:9pt;
+      }
+      .leaflet-control-mapcodes,
+      .leaflet-control-mapcodes .uiElement input {
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        border-radius:5px;
+      }
+
+      .leaflet-control-mapcodes .uiElement {
+        margin:4px;
+      }
+
+      .leaflet-control-mapcodes .uiElement .label span {
+        margin-right:4px;
+      }
+
+      .leaflet-control-mapcodes .uiHidden{
+        display:none;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  </head>
+  
+  <body>
+    <button id="btn-login" disabled="true" onclick="login()">Log in</button>
+    <!--<button id="btn-logout" disabled="true" onclick="logout()">Log out</button>-->
+    <div id="map"></div>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.2/auth0-spa-js.production.js"></script>
+    <script type="application/javascript" src="Java%20Script/auth.js"></script>
+    <script type="application/javascript" src="Java%20Script/application.js"></script>
+	
+	<!-- Possible values: 1Forest, 1ForestAndRoads, 3Canyons, 4Canyons -->
+	<input type="hidden" id="mapSelector" value="1Forest"></input>
+  </body>
+</html>
