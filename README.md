@@ -1,4 +1,4 @@
-# About MMO-Map-Project     
+# About Map-Project     
 This application can be used to collaboratively fill out the position of resources, mobs, etc on a map. 
 https://www.youtube.com/watch?v=HVLnytJOPtY        
 
@@ -11,7 +11,7 @@ Marker popups only appear when there is text in the appropriate cell.
 Every resource has its own filter.       
 You can zoom in and out on the map with scroll wheel or the on screen buttons.    
 Coordinate displayed on bottom left.      
-On click (LMB) the current coordinates are coppied to the clipboard for ease of input.
+On click (LMB) the appropriate command is coppied to the clipboard for ease of input.
 
 # Screenshots:               
 The application:            
@@ -26,6 +26,6 @@ Sheet setup:
 # Based on:    
 [Leaflet](https://leafletjs.com/)    
 [Atlas-MMO-Resource-Map](https://github.com/ipepe/atlas-mmo-resources-map)     
-Optional data feed methods can be through:    
+Optional data feed through:    
 [Discord2Sheet-Bot](https://github.com/hugonun/discord2sheet-bot)     
-and/or a [google form](https://www.google.com/forms/about/)        
+Auth by [Fyren](https://bitbucket.org/FyrenFire/)
